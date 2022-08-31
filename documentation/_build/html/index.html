@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>locust’s documentation &#8212; locust 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">locust 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">locust’s documentation</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-main">
+<span id="locust-s-documentation"></span><h1>locust’s documentation<a class="headerlink" href="#module-main" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="main.config">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">config</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">section</span></em>, <em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">'credentials.ini'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read configuration data from a ini file for connecting to Postgresql</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>section</strong> – database to connect.</p></li>
+<li><p><strong>filename</strong> – file containing the credentials</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>credentials used by sqlalchemy to connect to database.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.get_admin_areas">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">get_admin_areas</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.get_admin_areas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Geodataframes used to filter data and mapping</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>engine</strong> – sqlalchemy engine.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>One geodataframe for country and one for provinces.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>geodataframes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.get_reports_table">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">get_reports_table</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.get_reports_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dataframes containing the reports from Postgresql</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>engine</strong> – sqlalchemy engine.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Locust reports.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.split_date">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">split_date</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datetime_string</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.split_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split the Postgresql array in a standard Pandas cell containing a date passed with apply</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>datetime_string</strong> – data contained in Pandas</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>datetime</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>date</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="section" id="module-shapefiles_loading">
+<span id="loading-shapefiles"></span><h2>loading shapefiles<a class="headerlink" href="#module-shapefiles_loading" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="shapefiles_loading.write_2_pg">
+<code class="sig-prename descclassname">shapefiles_loading.</code><code class="sig-name descname">write_2_pg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">table_locust</span></em><span class="sig-paren">)</span><a class="headerlink" href="#shapefiles_loading.write_2_pg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create Postgresql table from shapefiles</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>table_locust</strong> – name of table to be created</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">locust’s documentation</a><ul>
+<li><a class="reference internal" href="#module-shapefiles_loading">loading shapefiles</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">locust 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">locust’s documentation</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Fabio Lana.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

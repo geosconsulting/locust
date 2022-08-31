@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>locust’s documentation &#8212; Locust Code DEscription 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Locust Code DEscription 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">locust’s documentation</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-main">
+<span id="locust-s-documentation"></span><h1>locust’s documentation<a class="headerlink" href="#module-main" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="main.calculate_future_stages">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">calculate_future_stages</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">gdf</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.calculate_future_stages" title="Permalink to this definition">¶</a></dt>
+<dd><p>For Stages ONE and TWO calculate dates for the following stages</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gdf</strong> – geo-dataframe of stage selected</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>geo-dataframe dates of future stages added</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.concat_split_columns">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">concat_split_columns</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">gdf</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.concat_split_columns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Columns containing split values rejoined with the main dataframe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gdf</strong> – gdf from PostgreSQL</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pandas dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.config">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">config</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">section</span></em>, <em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">'credentials.ini'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read configuration data from a ini file for connecting to Postgresql</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>section</strong> – database to connect.</p></li>
+<li><p><strong>filename</strong> – file containing the credentials</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>credentials used by sqlalchemy to connect to database.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.filter_reports_spatially">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">filter_reports_spatially</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">gdf</span></em>, <em class="sig-param"><span class="n">boundary</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.filter_reports_spatially" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove points outside the country</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gdf</strong> – locust resports</p></li>
+<li><p><strong>boundary</strong> – country administrative boundary</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>geo-dataframe without the points located outside the country</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.get_admin_areas">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">get_admin_areas</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em>, <em class="sig-param"><span class="n">level</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.get_admin_areas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Geodataframes used to filter data and mapping</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>engine</strong> – sqlalchemy engine.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>One geodataframe for country and one for provinces.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>geo-dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.get_all_reports">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">get_all_reports</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.get_all_reports" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dataframes containing all the reports from Postgresql</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>engine</strong> – sqlalchemy engine.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Locust reports.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.get_date_filtered_reports">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">get_date_filtered_reports</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.get_date_filtered_reports" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dataframe containing the reports from Postgresql filtered by date</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>engine</strong> – sqlalchemy engine.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Locust reports.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.get_reports_table_filtered_by_date_split">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">get_reports_table_filtered_by_date_split</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">engine</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.get_reports_table_filtered_by_date_split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dataframe containing the reports from Postgresql with complex types split in columns</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>engine</strong> – sqlalchemy engine.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Locust reports.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.map_instars">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">map_instars</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">gdf</span></em>, <em class="sig-param"><span class="n">provinces_oman</span></em>, <em class="sig-param"><span class="n">selected_prov_stage_3</span></em>, <em class="sig-param"><span class="n">selected_prov_stage_4</span></em>, <em class="sig-param"><span class="n">gdf_stage_3</span></em>, <em class="sig-param"><span class="n">gdf_stage_4</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.map_instars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mapping provinces</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gdf</strong> – </p></li>
+<li><p><strong>provinces_oman</strong> – </p></li>
+<li><p><strong>selected_prov_stage_3</strong> – </p></li>
+<li><p><strong>selected_prov_stage_4</strong> – </p></li>
+<li><p><strong>gdf_stage_3</strong> – </p></li>
+<li><p><strong>gdf_stage_4</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.plot_reports">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">plot_reports</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">country</span></em>, <em class="sig-param"><span class="n">reports</span></em>, <em class="sig-param"><span class="n">column</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.plot_reports" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot reports using the column received as parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>country</strong> – selected country</p></li>
+<li><p><strong>reports</strong> – dataframe with points</p></li>
+<li><p><strong>column</strong> – column used for the legend</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.remove_gee_layers">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">remove_gee_layers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">map_widget</span></em>, <em class="sig-param"><span class="n">map_layers</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.remove_gee_layers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove loaded GEE layers
+:param map_widget: map show in jupyter notebook
+:param map_layers: layers loaded in the map widget from GEE</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.remove_wms_layers">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">remove_wms_layers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">map_widget</span></em>, <em class="sig-param"><span class="n">wms_layers</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.remove_wms_layers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove loaded WMS layers
+:param map_widget: map show in jupyter notebook
+:param wms_layers: layers loaded in the map widget from WMS</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.select_provinces_intersect">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">select_provinces_intersect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">provinces_oman</span></em>, <em class="sig-param"><span class="n">gdf_stage</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.select_provinces_intersect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Intersect provinces with records with a certain stage</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>provinces_oman</strong> – geo-dataframe provinces</p></li>
+<li><p><strong>gdf_stage</strong> – stage level</p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.select_records_at_stage_three_four">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">select_records_at_stage_three_four</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">gdf</span></em>, <em class="sig-param"><span class="n">start_day</span></em>, <em class="sig-param"><span class="n">period</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.select_records_at_stage_three_four" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selecting the two important stages ONE/TWO and THREE/FOUR</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>period</strong> – period of analysis</p></li>
+<li><p><strong>start_day</strong> – day of analysis</p></li>
+<li><p><strong>gdf</strong> – all the records</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>sliced geo-dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.select_records_by_dominant_stage">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">select_records_by_dominant_stage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">gdf</span></em>, <em class="sig-param"><span class="n">stage</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.select_records_by_dominant_stage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selecting the two important stages ONE/TWO and THREE/FOUR</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gdf</strong> – all the records</p></li>
+<li><p><strong>stage</strong> – a single stage</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>sliced geo-dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.split_date">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">split_date</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datetime_string</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.split_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split the Postgresql array in a standard Pandas cell containing a date passed with apply</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>datetime_string</strong> – data contained in Pandas</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>datetime</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>date</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.split_dominant">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">split_dominant</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">val</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.split_dominant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Regular expression used for splitting complex structure contained in a field</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>val</strong> – </p>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.split_stages">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">split_stages</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">val</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.split_stages" title="Permalink to this definition">¶</a></dt>
+<dd><p>The PG column containing the different stages a specific couple os stages e.g.’TWO’,’FLEDGLING’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>val</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>intermediate</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="section" id="module-shapefiles_loading">
+<span id="loading-shapefiles"></span><h2>loading shapefiles<a class="headerlink" href="#module-shapefiles_loading" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="shapefiles_loading.write_2_pg">
+<code class="sig-prename descclassname">shapefiles_loading.</code><code class="sig-name descname">write_2_pg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">table_locust</span></em><span class="sig-paren">)</span><a class="headerlink" href="#shapefiles_loading.write_2_pg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create Postgresql table from shapefiles</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>table_locust</strong> – name of table to be created</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">locust’s documentation</a><ul>
+<li><a class="reference internal" href="#module-shapefiles_loading">loading shapefiles</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Locust Code DEscription 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">locust’s documentation</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Fabio Lana.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>
